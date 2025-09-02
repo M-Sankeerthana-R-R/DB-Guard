@@ -1,0 +1,35 @@
+body {
+  background: #121212;
+  color: #e0e0e0;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.client-details .card {
+  background: #1e1e1e;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.client-details table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #e0e0e0;
+}
+
+.client-details th,
+.client-details td {
+  padding: 8px;
+  border-bottom: 1px solid #2a2a2a;
+  text-align: left;
+}
+
+.client-details a {
+  color: #00bfff;
+}
+
+.chart-container {
+  width: 400px;
+  height: 350px;
+}

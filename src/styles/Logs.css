@@ -1,0 +1,29 @@
+/* src/components/Logs.css */
+.logs-container {
+  background: #121212;
+  color: #e0e0e0;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.logs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.logs-table th,
+.logs-table td {
+  padding: 8px;
+  border-bottom: 1px solid #2a2a2a;
+  text-align: left;
+}
+
+.logs-table pre {
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.logs-container a {
+  color: #00bfff;
+}
