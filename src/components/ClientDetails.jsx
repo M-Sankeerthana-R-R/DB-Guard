@@ -24,8 +24,12 @@ const ClientDetails = () => {
       <h1>Client {clientId} Details</h1>
 
       <div className="card">
-        <p><strong>Total Queries:</strong> {clientData.total_queries}</p>
-        <p><strong>Slow Queries:</strong> {clientData.slow_queries}</p>
+        <p>
+          <strong>Total Queries:</strong> {clientData.total_queries}
+        </p>
+        <p>
+          <strong>Slow Queries:</strong> {clientData.slow_queries}
+        </p>
       </div>
 
       <div className="card chart-container">
@@ -45,8 +49,50 @@ const ClientDetails = () => {
           style={{ width: "400px", height: "350px" }}
         />
       </div>
-
       <h2>Executed Queries (most recent first)</h2>
+      <div className="card">
+        <table>
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Query</th>
+              <th>Result</th>
+              <th>Ranking</th> {/* Added Ranking column */}
+            </tr>
+          </thead>
+          <tbody>
+            {clientData.queries.map((q, index) => (
+              <tr key={index}>
+                <td>{q.Timestamp}</td>
+                <td>
+                  <pre style={{ whiteSpace: "pre-wrap", color: "#e0e0e0" }}>
+                    {q.Query}
+                  </pre>
+                </td>
+                <td>
+                  <pre style={{ whiteSpace: "pre-wrap", color: "#e0e0e0" }}>
+                    {q.Result}
+                  </pre>
+                </td>
+                <td>
+                  <pre style={{ whiteSpace: "pre-wrap", color: "#e0e0e0" }}>
+                    {q.Ranking
+                      ? (typeof q.Ranking === "string"
+                          ? JSON.parse(q.Ranking)
+                          : q.Ranking
+                        )
+                          .map((r) => `${r.cause}: ${r.score}`)
+                          .join("\n")
+                      : "—"}
+                  </pre>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* <h2>Executed Queries (most recent first)</h2>
       <div className="card">
         <table>
           <thead>
@@ -74,7 +120,7 @@ const ClientDetails = () => {
             ))}
           </tbody>
         </table>
-      </div>
+      </div> */}
 
       <p>
         <Link to="/">Back to Dashboard</Link>

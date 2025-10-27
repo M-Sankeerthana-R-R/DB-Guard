@@ -1,7 +1,13 @@
+# INSERT INTO Employees (name, department, salary, ssn, password, email, joining_date) VALUES('Rahul Sharma', 'IT', 65000.00, '123-45-6789', 'rahul@123', 'rahul.sharma@example.com', '2023-06-15');
+
+# DELETE FROM Employees WHERE emp_id = 2;
+
+# UPDATE Employees SET salary = 70000.00,department = 'HR',email = 'rahul.hr@example.com' WHERE emp_id = 1;
+
 import socket
 import ssl
 
-HOST = '10.12.201.195'  # replace with your server IP
+HOST = '10.208.18.195'  # replace with your server IP
 PORT = 5050
 
 context = ssl.create_default_context()

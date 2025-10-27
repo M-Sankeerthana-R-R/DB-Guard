@@ -16,8 +16,7 @@ const Logs = () => {
     <div className="logs-container">
       <h1>Activity Logs</h1>
       <p>
-        <a href="/">Back to Dashboard</a> |{" "}
-        <a href="/download">Download CSV</a>
+        <a href="/">Back to Dashboard</a> | <a href="/download">Download CSV</a>
       </p>
 
       <table className="logs-table">
@@ -30,6 +29,7 @@ const Logs = () => {
             <th>ExecutionTime</th>
             <th>SlowQuery</th>
             <th>Result</th>
+            <th>Ranking</th>
           </tr>
         </thead>
         <tbody>
@@ -39,10 +39,17 @@ const Logs = () => {
                 <td>{row.Timestamp}</td>
                 <td>{row.ClientID}</td>
                 <td>{row.QueryType}</td>
-                <td><pre>{row.Query}</pre></td>
+                <td>
+                  <pre>{row.Query}</pre>
+                </td>
                 <td>{row.ExecutionTime}</td>
                 <td>{row.SlowQuery ? "Yes" : "No"}</td>
-                <td><pre>{row.Result}</pre></td>
+                <td>
+                  <pre>{row.Result}</pre>
+                </td>
+                <td>
+                  <pre>{row.Ranking}</pre>
+                </td>
               </tr>
             ))
           ) : (

@@ -6,6 +6,8 @@ import pandas as pd
 import os
 import json
 from flask_cors import CORS
+from routes.clientProxy import client_bp
+from monitor.slow_query_analyzer import analyze_root_causes
 
 app = Flask(__name__)
 CORS(app)
@@ -75,6 +77,57 @@ def dashboard():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# @app.route('/api/client/<client_id>')
+# def client_details(client_id):
+#     if not os.path.exists(LOG_FILE_PATH):
+#         return jsonify({"error": "Log file not found."}), 404
+
+#     try:
+#         df = pd.read_csv(LOG_FILE_PATH, dtype=str)
+#         if 'Result' not in df.columns:
+#             df['Result'] = ""
+
+#         if 'Timestamp' in df.columns:
+#             df['Timestamp'] = pd.to_datetime(df['Timestamp'], errors='coerce')
+#             df = df.dropna(subset=['Timestamp'])
+#         else:
+#             df['Timestamp'] = pd.to_datetime('now')
+
+#         if 'SlowQuery' in df.columns:
+#             df['SlowQuery'] = df['SlowQuery'].astype(str).str.lower().isin(['true','1','yes'])
+#         else:
+#             df['SlowQuery'] = False
+
+#         df_client = df[df['ClientID'].astype(str) == str(client_id)].sort_values(by='Timestamp', ascending=False)
+
+#         if df_client.empty:
+#             return jsonify({"error": f"No data for client {client_id}"}), 404
+
+#         total_queries = len(df_client)
+#         slow_queries = int(df_client['SlowQuery'].sum())
+
+#         change_mask = ~df_client['Query'].str.lower().str.strip().str.startswith(('select','show','desc','describe'))
+#         change_count = int(change_mask.sum())
+#         view_count = int((~change_mask).sum())
+
+#         records = []
+#         for _, row in df_client.iterrows():
+#             records.append({
+#                 'Timestamp': row.get('Timestamp').strftime('%Y-%m-%d %H:%M:%S') if not pd.isnull(row.get('Timestamp')) else '',
+#                 'Query': row.get('Query', ''),
+#                 'Result': row.get('Result', '')
+#             })
+
+#         return jsonify({
+#             "client_id": client_id,
+#             "total_queries": total_queries,
+#             "slow_queries": slow_queries,
+#             "change_count": change_count,
+#             "view_count": view_count,
+#             "queries": records
+#         })
+#     except Exception as e:
+#         return jsonify({"error": str(e)}), 500
 @app.route('/api/client/<client_id>')
 def client_details(client_id):
     if not os.path.exists(LOG_FILE_PATH):
@@ -110,10 +163,15 @@ def client_details(client_id):
 
         records = []
         for _, row in df_client.iterrows():
+            query_text = row.get('Query', '')
+            # 🔹 Added ML root cause ranking
+            ranking = analyze_root_causes(query_text)  # returns list of causes with scores
+
             records.append({
                 'Timestamp': row.get('Timestamp').strftime('%Y-%m-%d %H:%M:%S') if not pd.isnull(row.get('Timestamp')) else '',
-                'Query': row.get('Query', ''),
-                'Result': row.get('Result', '')
+                'Query': query_text,
+                'Result': row.get('Result', ''),
+                'Ranking': ranking  # <-- new field added
             })
 
         return jsonify({
@@ -146,5 +204,6 @@ def download():
         return jsonify({"error": "Log file not found."}), 404
     return send_file(LOG_FILE_PATH, as_attachment=True)
 
+app.register_blueprint(client_bp, url_prefix="/api")
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

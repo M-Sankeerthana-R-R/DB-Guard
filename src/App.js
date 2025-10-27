@@ -5,7 +5,7 @@ import Dashboard from "./components/Dashboard";
 import ClientDetails from "./components/ClientDetails";
 import Logs from "./components/Logs";
 import "./App.css";
-
+import ClientConsole from "./components/Console"
 function App() {
   return (
     <Router>
@@ -13,6 +13,7 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/client/:clientId" element={<ClientDetails />} />
         <Route path="/logs" element={<Logs />} />
+        <Route path="/console" element={<ClientConsole />} />
       </Routes>
     </Router>
   );
