@@ -33,3 +33,37 @@ body {
   width: 400px;
   height: 350px;
 }
+.alerts-container {
+  margin-bottom: 15px;
+}
+
+.alert-banner {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  white-space: pre-wrap;
+}
+
+.alert-low {
+  background-color: #ffe97a;
+  color: #222;
+}
+
+.alert-medium {
+  background-color: #ffcc00;
+  color: #222;
+}
+
+.alert-high {
+  background-color: #ff4c4c;
+  color: white;
+}
+
+.alert-tag {
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  display: inline-block;
+}

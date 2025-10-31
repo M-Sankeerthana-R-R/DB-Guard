@@ -17,3 +17,137 @@ Timestamp,ClientID,QueryType,Query,ExecutionTime,SlowQuery,Result,Ranking
 (6, 'Hermoine', 'Manager', 'hermoine@hogwarts.com', datetime.date(2023, 9, 8))
 (7, 'Ron', 'Engineering', 'ron@example.com', datetime.date(2023, 9, 7))","[{""cause"": ""ml_predicted_slow"", ""score"": 1.0}, {""cause"": ""full_table_scan"", ""score"": 0.9}, {""cause"": ""missing_where"", ""score"": 0.85}]"
 2025-10-27 10:06:09,99,NEEDS-APPROVAL,update employees set salary=salary+10000 where name='Eve';,3.3,True,Approved and executed.,"[{""cause"": ""ml_predicted_slow"", ""score"": 1.0}]"
+2025-10-27 10:23:27,65,SELECT,select * from employees;,3.69,True,"(3, 'Charlie', 'Finance', 'charlie@example.com', datetime.date(2021, 12, 1))
+(4, 'Eve', 'HR', 'eve@example.com', datetime.date(2023, 7, 8))
+(5, 'Harry', 'HR', 'harry@example.com', datetime.date(2023, 7, 8))
+(6, 'Hermoine', 'Manager', 'hermoine@hogwarts.com', datetime.date(2023, 9, 8))
+(7, 'Ron', 'Engineering', 'ron@example.com', datetime.date(2023, 9, 7))","[{""cause"": ""ml_predicted_slow"", ""score"": 1.0}, {""cause"": ""full_table_scan"", ""score"": 0.9}, {""cause"": ""missing_where"", ""score"": 0.85}]"
+2025-10-27 10:24:16,65,NEEDS-APPROVAL,"update employees set salary=salary+10000 where name=""Eve""",3.9,True,Approved and executed.,"[{""cause"": ""ml_predicted_slow"", ""score"": 1.0}]"
+2025-10-28 10:03:03,1,SELECT,select * from employees;,18.03,True,"(3, 'Charlie', 'Finance', 'charlie@example.com', datetime.date(2021, 12, 1))
+(4, 'Eve', 'HR', 'eve@example.com', datetime.date(2023, 7, 8))
+(5, 'Harry', 'HR', 'harry@example.com', datetime.date(2023, 7, 8))
+(6, 'Hermoine', 'Manager', 'hermoine@hogwarts.com', datetime.date(2023, 9, 8))
+(7, 'Ron', 'Engineering', 'ron@example.com', datetime.date(2023, 9, 7))","[{""cause"": ""ml_predicted_slow"", ""score"": 0.9999619722366333}, {""cause"": ""full_table_scan"", ""score"": 0.9}, {""cause"": ""missing_where"", ""score"": 0.85}]"
+2025-10-28 10:30:30,1,SELECT,select * from employees;,3.25,True,"(3, 'Charlie', 'Finance', 'charlie@example.com', datetime.date(2021, 12, 1))
+(4, 'Eve', 'HR', 'eve@example.com', datetime.date(2023, 7, 8))
+(5, 'Harry', 'HR', 'harry@example.com', datetime.date(2023, 7, 8))
+(6, 'Hermoine', 'Manager', 'hermoine@hogwarts.com', datetime.date(2023, 9, 8))
+(7, 'Ron', 'Engineering', 'ron@example.com', datetime.date(2023, 9, 7))","[{""cause"": ""ml_predicted_slow"", ""score"": 0.9999619722366333}, {""cause"": ""full_table_scan"", ""score"": 0.9}, {""cause"": ""missing_where"", ""score"": 0.85}]"
+2025-10-28 10:33:41,1,SELECT,select * from employees;,4.58,True,"(3, 'Charlie', 'Finance', 'charlie@example.com', datetime.date(2021, 12, 1))
+(4, 'Eve', 'HR', 'eve@example.com', datetime.date(2023, 7, 8))
+(5, 'Harry', 'HR', 'harry@example.com', datetime.date(2023, 7, 8))
+(6, 'Hermoine', 'Manager', 'hermoine@hogwarts.com', datetime.date(2023, 9, 8))
+(7, 'Ron', 'Engineering', 'ron@example.com', datetime.date(2023, 9, 7))","[{""cause"": ""ml_predicted_slow"", ""score"": 0.9999619722366333}, {""cause"": ""full_table_scan"", ""score"": 0.9}, {""cause"": ""missing_where"", ""score"": 0.85}]"
+2025-10-28 10:38:34,1,SELECT,select * from employees,5.2,True,"(3, 'Charlie', 'Finance', 'charlie@example.com', datetime.date(2021, 12, 1))
+(4, 'Eve', 'HR', 'eve@example.com', datetime.date(2023, 7, 8))
+(5, 'Harry', 'HR', 'harry@example.com', datetime.date(2023, 7, 8))
+(6, 'Hermoine', 'Manager', 'hermoine@hogwarts.com', datetime.date(2023, 9, 8))
+(7, 'Ron', 'Engineering', 'ron@example.com', datetime.date(2023, 9, 7))","[{""cause"": ""ml_predicted_slow"", ""score"": 0.999946117401123}, {""cause"": ""full_table_scan"", ""score"": 0.9}, {""cause"": ""missing_where"", ""score"": 0.85}]"
+2025-10-28 10:39:26,1,SELECT,select * from employees;,5.84,True,"(3, 'Charlie', 'Finance', 'charlie@example.com', datetime.date(2021, 12, 1))
+(4, 'Eve', 'HR', 'eve@example.com', datetime.date(2023, 7, 8))
+(5, 'Harry', 'HR', 'harry@example.com', datetime.date(2023, 7, 8))
+(6, 'Hermoine', 'Manager', 'hermoine@hogwarts.com', datetime.date(2023, 9, 8))
+(7, 'Ron', 'Engineering', 'ron@example.com', datetime.date(2023, 9, 7))","[{""cause"": ""ml_predicted_slow"", ""score"": 0.9999619722366333}, {""cause"": ""full_table_scan"", ""score"": 0.9}, {""cause"": ""missing_where_filter"", ""score"": 0.85}]"
+2025-10-28 10:41:25,1,SELECT,select * from employees;,4.12,True,"(3, 'Charlie', 'Finance', 'charlie@example.com', datetime.date(2021, 12, 1))
+(4, 'Eve', 'HR', 'eve@example.com', datetime.date(2023, 7, 8))
+(5, 'Harry', 'HR', 'harry@example.com', datetime.date(2023, 7, 8))
+(6, 'Hermoine', 'Manager', 'hermoine@hogwarts.com', datetime.date(2023, 9, 8))
+(7, 'Ron', 'Engineering', 'ron@example.com', datetime.date(2023, 9, 7))","[{""cause"": ""ml_predicted_slow"", ""score"": 0.9999619722366333}, {""cause"": ""full_table_scan"", ""score"": 0.9}, {""cause"": ""missing_where_filter"", ""score"": 0.85}]"
+2025-10-28 10:45:13,1,NEEDS-APPROVAL,"update employees set salary=salary+100 where name=""Eve""",5.65,True,Approved and executed.,
+2025-10-28 10:46:24,1,NEEDS-APPROVAL,update employees set salary=salary+1000 where name='Charlie',4.53,True,Approved and executed.,
+2025-10-28 10:48:51,1,SELECT,select * from employees;,4.9,True,"(3, 'Charlie', 'Finance', 'charlie@example.com', datetime.date(2021, 12, 1))
+(4, 'Eve', 'HR', 'eve@example.com', datetime.date(2023, 7, 8))
+(5, 'Harry', 'HR', 'harry@example.com', datetime.date(2023, 7, 8))
+(6, 'Hermoine', 'Manager', 'hermoine@hogwarts.com', datetime.date(2023, 9, 8))
+(7, 'Ron', 'Engineering', 'ron@example.com', datetime.date(2023, 9, 7))","[{""cause"": ""full_table_scan"", ""score"": 0.9}, {""cause"": ""missing_where_filter"", ""score"": 0.85}]"
+2025-10-28 10:49:17,1,NEEDS-APPROVAL,update employees set salary=salary+1000 where name='Harry',3.37,True,Approved and executed.,
+2025-10-28 10:51:07,1,SELECT,"SELECT department, COUNT(*) FROM employees GROUP BY department;",3.67,True,"(3, 'Charlie', 'Finance', 'charlie@example.com', datetime.date(2021, 12, 1))
+(4, 'Eve', 'HR', 'eve@example.com', datetime.date(2023, 7, 8))
+(5, 'Harry', 'HR', 'harry@example.com', datetime.date(2023, 7, 8))
+(6, 'Hermoine', 'Manager', 'hermoine@hogwarts.com', datetime.date(2023, 9, 8))
+(7, 'Ron', 'Engineering', 'ron@example.com', datetime.date(2023, 9, 7))","[{""cause"": ""missing_where_filter"", ""score"": 0.85}, {""cause"": ""large_group_by_aggregation"", ""score"": 0.78}]"
+2025-10-28 10:51:35,1,SELECT,"SELECT department, COUNT(*) FROM employees GROUP BY department;",4.25,True,"(3, 'Charlie', 'Finance', 'charlie@example.com', datetime.date(2021, 12, 1))
+(4, 'Eve', 'HR', 'eve@example.com', datetime.date(2023, 7, 8))
+(5, 'Harry', 'HR', 'harry@example.com', datetime.date(2023, 7, 8))
+(6, 'Hermoine', 'Manager', 'hermoine@hogwarts.com', datetime.date(2023, 9, 8))
+(7, 'Ron', 'Engineering', 'ron@example.com', datetime.date(2023, 9, 7))","[{""cause"": ""missing_where_filter"", ""score"": 0.85}, {""cause"": ""large_group_by_aggregation"", ""score"": 0.78}]"
+2025-10-28 12:13:15,1,SELECT,select * from employees;,4.93,True,"(3, 'Charlie', 'Finance', 'charlie@example.com', datetime.date(2021, 12, 1))
+(4, 'Eve', 'HR', 'eve@example.com', datetime.date(2023, 7, 8))
+(5, 'Harry', 'HR', 'harry@example.com', datetime.date(2023, 7, 8))
+(6, 'Hermoine', 'Manager', 'hermoine@hogwarts.com', datetime.date(2023, 9, 8))
+(7, 'Ron', 'Engineering', 'ron@example.com', datetime.date(2023, 9, 7))","[{""cause"": ""ml_predicted_slow"", ""score"": 0.9999619722366333}, {""cause"": ""full_table_scan"", ""score"": 0.9}, {""cause"": ""missing_where_filter"", ""score"": 0.85}]"
+2025-10-31 18:08:26,2,SELECT,select * from students;,5.16,True,Error executing select: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM students' at line 1,"[{""cause"": ""ml_predicted_slow"", ""score"": 0.999946117401123}, {""cause"": ""full_table_scan"", ""score"": 0.9}, {""cause"": ""missing_where_filter"", ""score"": 0.85}]"
+2025-10-31 18:08:55,2,SELECT,"SELECT name, department FROM Students;",0.02,False,"('Ananya Reddy', 'CSE')
+('Ravi Kumar', 'ECE')
+('Priya Sharma', 'IT')","[{""cause"": ""ml_predicted_slow"", ""score"": 0.9999994039535522}, {""cause"": ""missing_where_filter"", ""score"": 0.85}]"
+2025-10-31 18:09:14,2,SELECT,"SELECT dept_name, head_name FROM Departments;",0.0,False,"('IT', 'Rohit Mehta')
+('HR', 'Nisha Patel')
+('CSE', 'Deepak Rao')","[{""cause"": ""ml_predicted_slow"", ""score"": 1.0}, {""cause"": ""missing_where_filter"", ""score"": 0.85}]"
+2025-10-31 18:09:30,2,SELECT,SELECT * FROM Students;,4.17,True,Error executing select: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM students' at line 1,"[{""cause"": ""ml_predicted_slow"", ""score"": 0.999946117401123}, {""cause"": ""full_table_scan"", ""score"": 0.9}, {""cause"": ""missing_where_filter"", ""score"": 0.85}]"
+2025-10-31 18:14:26,3,SELECT,select * from Students;,4.31,True,"(1, 'Ananya Reddy', 20, 'CSE', 'A', 'ananya.reddy@example.com', '123-22-6789', 'ana@123', datetime.date(2023, 8, 20))
+(2, 'Ravi Kumar', 21, 'ECE', 'B', 'ravi.kumar@example.com', '223-11-8899', 'ravi@321', datetime.date(2022, 7, 14))
+(3, 'Priya Sharma', 19, 'IT', 'A', 'priya.sharma@example.com', '323-55-4455', 'priya@999', datetime.date(2024, 1, 10))","[{""cause"": ""ml_predicted_slow"", ""score"": 0.999946117401123}, {""cause"": ""full_table_scan"", ""score"": 0.9}, {""cause"": ""missing_where_filter"", ""score"": 0.85}]"
+2025-10-31 23:52:36,1,SELECT,select * from Students;,3.92,True,"(1, 'Ananya Reddy', 20, 'CSE', 'A', 'ananya.reddy@example.com', '123-22-6789', 'ana@123', datetime.date(2023, 8, 20))
+(2, 'Ravi Kumar', 21, 'ECE', 'B', 'ravi.kumar@example.com', '223-11-8899', 'ravi@321', datetime.date(2022, 7, 14))
+(3, 'Priya Sharma', 19, 'IT', 'A', 'priya.sharma@example.com', '323-55-4455', 'priya@999', datetime.date(2024, 1, 10))",
+2025-10-31 23:57:27,1,SELECT,select * from Sudents;,8.82,True,Error executing select: 1146 (42S02): Table 'mydb.Sudents' doesn't exist,
+2025-10-31 23:57:56,1,SELECT,select * from Students,3.83,True,"(1, 'Ananya Reddy', 20, 'CSE', 'A', 'ananya.reddy@example.com', '123-22-6789', 'ana@123', datetime.date(2023, 8, 20))
+(2, 'Ravi Kumar', 21, 'ECE', 'B', 'ravi.kumar@example.com', '223-11-8899', 'ravi@321', datetime.date(2022, 7, 14))
+(3, 'Priya Sharma', 19, 'IT', 'A', 'priya.sharma@example.com', '323-55-4455', 'priya@999', datetime.date(2024, 1, 10))",
+2025-11-01 00:33:35,3,SELECT,select * from employees,3.84,True,"(3, 'Charlie', 'Finance', 'charlie@example.com', datetime.date(2021, 12, 1))
+(4, 'Eve', 'HR', 'eve@example.com', datetime.date(2023, 7, 8))
+(5, 'Harry', 'HR', 'harry@example.com', datetime.date(2023, 7, 8))
+(6, 'Hermoine', 'Manager', 'hermoine@hogwarts.com', datetime.date(2023, 9, 8))
+(7, 'Ron', 'Engineering', 'ron@example.com', datetime.date(2023, 9, 7))","{""status"": ""Slow"", ""root_cause"": ""function_based_filter"", ""score"": 0.9999}"
+2025-11-01 00:33:51,3,SELECT,select name from employees;,0.01,False,"('Charlie',)
+('Eve',)
+('Harry',)
+('Hermoine',)
+('Ron',)","{""status"": ""Slow"", ""root_cause"": ""function_based_filter"", ""score"": 1.0}"
+2025-11-01 00:34:27,3,SELECT,select name from employees where emp_id = 3;,0.01,False,"('Charlie',)","{""status"": ""Slow"", ""root_cause"": ""missing_indexes"", ""score"": 1.0}"
+2025-11-01 00:41:04,1,SELECT,select * from employees;,6.94,True,"(3, 'Charlie', 'Finance', 'charlie@example.com', datetime.date(2021, 12, 1))
+(4, 'Eve', 'HR', 'eve@example.com', datetime.date(2023, 7, 8))
+(5, 'Harry', 'HR', 'harry@example.com', datetime.date(2023, 7, 8))
+(6, 'Hermoine', 'Manager', 'hermoine@hogwarts.com', datetime.date(2023, 9, 8))
+(7, 'Ron', 'Engineering', 'ron@example.com', datetime.date(2023, 9, 7))","{""status"": ""Slow"", ""root_cause"": ""function_based_filter"", ""score"": 1.0}"
+2025-11-01 00:41:18,1,SELECT,select name from employees,0.0,False,"('Charlie',)
+('Eve',)
+('Harry',)
+('Hermoine',)
+('Ron',)","{""status"": ""Slow"", ""root_cause"": ""function_based_filter"", ""score"": 1.0}"
+2025-11-01 00:42:26,3,SELECT,select * from employees,4.99,True,"(3, 'Charlie', 'Finance', 'charlie@example.com', datetime.date(2021, 12, 1))
+(4, 'Eve', 'HR', 'eve@example.com', datetime.date(2023, 7, 8))
+(5, 'Harry', 'HR', 'harry@example.com', datetime.date(2023, 7, 8))
+(6, 'Hermoine', 'Manager', 'hermoine@hogwarts.com', datetime.date(2023, 9, 8))
+(7, 'Ron', 'Engineering', 'ron@example.com', datetime.date(2023, 9, 7))","{""status"": ""Slow"", ""root_cause"": ""function_based_filter"", ""score"": 0.9999}"
+2025-11-01 00:42:42,3,SELECT,select name from employees;,0.0,False,"('Charlie',)
+('Eve',)
+('Harry',)
+('Hermoine',)
+('Ron',)","{""status"": ""Slow"", ""root_cause"": ""function_based_filter"", ""score"": 1.0}"
+2025-11-01 00:44:00,1,SELECT,select name from employees;,0.0,False,"('Charlie',)
+('Eve',)
+('Harry',)
+('Hermoine',)
+('Ron',)","{""status"": ""Slow"", ""root_cause"": ""function_based_filter"", ""score"": 1.0}"
+2025-11-01 00:47:41,1,SELECT,select * from employees,18.45,True,"(3, 'Charlie', 'Finance', 'charlie@example.com', datetime.date(2021, 12, 1))
+(4, 'Eve', 'HR', 'eve@example.com', datetime.date(2023, 7, 8))
+(5, 'Harry', 'HR', 'harry@example.com', datetime.date(2023, 7, 8))
+(6, 'Hermoine', 'Manager', 'hermoine@hogwarts.com', datetime.date(2023, 9, 8))
+(7, 'Ron', 'Engineering', 'ron@example.com', datetime.date(2023, 9, 7))","{""status"": ""Normal"", ""root_cause"": ""outdated statistical information"", ""score"": 0.896}"
+2025-11-01 00:47:41,1,SELECT,select name from employees,0.0,False,"('Charlie',)
+('Eve',)
+('Harry',)
+('Hermoine',)
+('Ron',)","{""status"": ""Normal"", ""root_cause"": ""repeatedly executing subqueries"", ""score"": 0.934}"
+2025-11-01 00:48:48,1,SELECT,select name from employees,0.0,False,"('Charlie',)
+('Eve',)
+('Harry',)
+('Hermoine',)
+('Ron',)","{""status"": ""Normal"", ""root_cause"": """", ""score"": 0.3836}"
+2025-11-01 00:49:16,1,SELECT,select * from employees,5.32,True,"(3, 'Charlie', 'Finance', 'charlie@example.com', datetime.date(2021, 12, 1))
+(4, 'Eve', 'HR', 'eve@example.com', datetime.date(2023, 7, 8))
+(5, 'Harry', 'HR', 'harry@example.com', datetime.date(2023, 7, 8))
+(6, 'Hermoine', 'Manager', 'hermoine@hogwarts.com', datetime.date(2023, 9, 8))
+(7, 'Ron', 'Engineering', 'ron@example.com', datetime.date(2023, 9, 7))","{""status"": ""Normal"", ""root_cause"": """", ""score"": 0.3909}"
+2025-11-01 00:49:40,1,SELECT,"SELECT name, salary FROM employees JOIN departments",3.2,True,Error executing select: 1146 (42S02): Table 'mydb.departments' doesn't exist,"{""status"": ""Normal"", ""root_cause"": """", ""score"": 0.3826}"

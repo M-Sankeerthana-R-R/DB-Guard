@@ -3,7 +3,7 @@
 import os
 import datetime
 
-THRESHOLD_SECONDS = 10  # Adjust as needed
+THRESHOLD_SECONDS = 2  # Adjust as needed
 SLOW_LOG_FILE = 'monitor/slow_queries.txt'
 
 def check_slow_query(client_id, query, exec_time):
